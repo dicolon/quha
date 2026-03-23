@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Point-N-Click 中文簡易教學</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text: #1b2430;
+      --muted: #5b6675;
+      --primary: #1759a8;
+      --line: #d8e0ea;
+      --warn: #fff6e5;
+      --ok: #eaf8ee;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1, h2, h3 { line-height: 1.3; }
+    h1 { font-size: 30px; margin: 0 0 8px; }
+    h2 {
+      margin-top: 28px;
+      padding-top: 10px;
+      border-top: 2px solid var(--line);
+      color: var(--primary);
+    }
+    .sub {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin: 14px 0;
+    }
+    .toc a {
+      display: inline-block;
+      margin: 6px 10px 6px 0;
+      color: var(--primary);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .note {
+      background: var(--warn);
+      border-left: 4px solid #f0b429;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    .ok {
+      background: var(--ok);
+      border-left: 4px solid #38a169;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    ul, ol { margin: 8px 0 8px 22px; }
+    code {
+      background: #eef3fa;
+      border: 1px solid #dbe5f3;
+      border-radius: 6px;
+      padding: 1px 6px;
+      font-family: Consolas, monospace;
+    }
+    .footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media print {
+      body { background: #fff; }
+      .wrap { max-width: none; padding: 0; }
+      .card { break-inside: avoid; }
+      .toc a { border: none; padding: 0; margin-right: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Point-N-Click 中文簡易教學</h1>
+    <div class="sub">適合初學者快速上手（依你提供的英文手冊整理）</div>
+
+    <div class="card toc">
+      <strong>目錄</strong><br />
+      <a href="#quickstart">1. 3分鐘快速上手</a>
+      <a href="#menu">2. 設定選單總覽</a>
+      <a href="#clicks">3. AutoMouse 點擊邏輯</a>
+      <a href="#advanced">4. 進階點擊功能</a>
+      <a href="#scroll">5. 網頁向下捲動設定</a>
+      <a href="#window">6. 視窗移動與隱藏</a>
+      <a href="#remote">7. Remote AutoMouse 區域</a>
+      <a href="#macros">8. 巨集（Macros）</a>
+      <a href="#trouble">9. 常見問題排除</a>
+    </div>
+
+    <h2 id="quickstart">1) 3分鐘快速上手</h2>
+    <div class="card">
+      <ol>
+        <li>滑鼠停在某個按鈕上，先變黃，再變紅，表示「已選擇」該點擊模式。</li>
+        <li>把指標移到你要點擊的位置，停留到時間到，系統就會自動點擊。</li>
+        <li>如果不想點了，按 <code>Cancel</code> 取消。</li>
+      </ol>
+      <div class="note">兩個關鍵時間：<br>
+        <code>AutoSelect Delay</code> = 在按鈕上停留多久才會選中按鈕。<br>
+        <code>AutoMouse Delay</code> = 在目標位置停留多久才會真的點擊。
+      </div>
+    </div>
+
+    <h2 id="menu">2) 設定選單總覽（Configuration）</h2>
+    <div class="card">
+      <h3>File</h3>
+      <ul>
+        <li><strong>Uninstall</strong>：解除安裝</li>
+        <li><strong>Exit</strong>：關閉設定程式</li>
+      </ul>
+
+      <h3>Options（常用）</h3>
+      <ul>
+        <li><strong>Run at Boot Up</strong>：開機自動啟動</li>
+        <li><strong>Shortcut on Desktop</strong>：在桌面建立捷徑</li>
+        <li><strong>Default to Left Click</strong>：每次點完自動回到左鍵模式</li>
+        <li><strong>Visible When Active</strong>：執行點擊期間視窗保持可見</li>
+        <li><strong>Visual/Audio Dwelling Feedback</strong>：停留時視覺/聲音提示</li>
+        <li><strong>No Sound When Selecting/Clicking</strong>：關閉選擇/點擊提示音</li>
+        <li><strong>AutoSelect Delay</strong>：設定按鈕選取延遲</li>
+        <li><strong>AutoMouse Delay</strong>：設定實際點擊延遲</li>
+        <li><strong>Sensitivity</strong>：設定抖動容忍度（建議先做）</li>
+        <li><strong>Transparency</strong>：視窗透明度</li>
+      </ul>
+
+      <h3>Selections</h3>
+      <ul>
+        <li><strong>AutoMouse Functions</strong>：決定主介面要顯示哪些按鈕</li>
+        <li><strong>Remote AutoMouse Areas</strong>：設定遠端熱區</li>
+        <li><strong>Initial AutoMouse Setting</strong>：啟動時預設選中的按鈕</li>
+        <li><strong>Exclude Programs</strong>：排除不套用 Point-N-Click 的程式</li>
+        <li><strong>Color Selection</strong>：變黃/變紅顏色調整</li>
+      </ul>
+
+      <h3>Macros</h3>
+      <ul>
+        <li>啟用巨集、隱藏巨集面板、設定預設自動播放巨集</li>
+      </ul>
+
+      <h3>Help</h3>
+      <ul>
+        <li>開啟說明與版本資訊</li>
+      </ul>
+    </div>
+
+    <h2 id="clicks">3) AutoMouse 點擊邏輯（核心觀念）</h2>
+    <div class="card">
+      <ul>
+        <li>按鈕選中後（紅色），下一次停留會觸發對應點擊。</li>
+        <li>點擊完成後通常會自動取消選中（除非你設定預設回左鍵）。</li>
+        <li>通常要先「移動離開主視窗」才會開始倒數點擊。</li>
+      </ul>
+      <div class="note">手冊提醒：在主視窗上亂停留可能誤觸，尤其左上/右上系統區域。</div>
+    </div>
+
+    <h2 id="advanced">4) 進階點擊功能（常用版）</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Shift / Ctrl / Alt</strong>：等同按住鍵盤修飾鍵再點擊</li>
+        <li><strong>Repeat With Movement Required</strong>：每次移動才重複點擊（適合選單）</li>
+        <li><strong>Repeat With No Movement Required</strong>：不移動也會依延遲連點（適合捲軸）</li>
+        <li><strong>Fast Repeat With No Movement Required</strong>：最快速連點（只支援左/中/右鍵）</li>
+        <li><strong>Right Click Then Left Click</strong>：先右鍵開選單，再左鍵選項</li>
+      </ul>
+      <div class="ok">互斥關係：三種 Repeat 只能選一種。</div>
+    </div>
+
+    <h2 id="scroll">5) 瀏覽網頁「向下捲動」建議設定</h2>
+    <div class="card">
+      <h3>方法 A（最穩定）</h3>
+      <ol>
+        <li>選 <strong>Left Click</strong></li>
+        <li>開啟 <strong>Repeat With No Movement Required</strong></li>
+        <li>把指標停在瀏覽器右側捲軸下箭頭或捲軸區</li>
+        <li>會持續觸發點擊達到向下捲動效果</li>
+      </ol>
+
+      <h3>方法 B（部分瀏覽器可用）</h3>
+      <ol>
+        <li>選 <strong>Middle Click</strong></li>
+        <li>在網頁空白處觸發中鍵自動捲動</li>
+        <li>指標往下移即可持續下捲</li>
+      </ol>
+      <div class="note">若太快/太慢，優先調整 <code>AutoMouse Delay</code>。</div>
+    </div>
+
+    <h2 id="window">6) 視窗移動、Docking 與 Hiding</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Move</strong>：用停留方式搬移主視窗。</li>
+        <li><strong>Docking</strong>：自動吸附到螢幕左右邊。</li>
+        <li><strong>Hiding</strong>：滑出後自動縮到邊緣，只留細邊可喚回。</li>
+        <li><strong>Visible When Active</strong>：點擊執行期間不要自動隱藏（建議開）。</li>
+      </ul>
+    </div>
+
+    <h2 id="remote">7) Remote AutoMouse Areas（遠端熱區）</h2>
+    <div class="card">
+      <ul>
+        <li>用途：全螢幕程式看不到主介面時，仍可透過桌面熱區觸發點擊。</li>
+        <li>可自訂熱區位置與大小。</li>
+        <li>建議先開 <strong>Show Remote AutoMouse Areas</strong> 做訓練。</li>
+      </ul>
+      <div class="note">Move / Dock / Hide / Help / Configure / Break Timer / Remote AutoMouse 不能設成遠端熱區。</div>
+    </div>
+
+    <h2 id="macros">8) 巨集（Macros）重點</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Recording</strong>：錄製一串點擊順序（不記錄座標與時間）</li>
+        <li><strong>Playback</strong>：一鍵回放點擊流程</li>
+        <li><strong>Deleting</strong>：刪除不需要的巨集</li>
+      </ul>
+      <div class="ok">因不綁定原始座標，重複性工作很實用。</div>
+    </div>
+
+    <h2 id="trouble">9) 常見問題排除（簡易）</h2>
+    <div class="card">
+      <ol>
+        <li><strong>太容易誤點</strong>：提高 <code>AutoMouse Delay</code>，並先做 <code>Sensitivity</code> 測試。</li>
+        <li><strong>選按鈕太慢</strong>：降低 <code>AutoSelect Delay</code>。</li>
+        <li><strong>聽到太多聲音</strong>：開啟 <code>No Sound When Selecting</code> / <code>No Sound When Clicking</code>。</li>
+        <li><strong>全螢幕不好操作</strong>：改用 <code>Remote AutoMouse Areas</code>。</li>
+        <li><strong>介面按鈕太多</strong>：到 <code>Selections → AutoMouse Functions</code> 精簡。
+          （但 <strong>Left Click / Left Double Click / Move / Cancel</strong> 為必留按鈕）</li>
+      </ol>
+    </div>
+
+    <div class="footer">
+      版本：中文簡易教學 v1.0<br />
+      用途：快速閱讀、訓練與交接；若需要我可再幫你做「超大字版」或「一頁式列印版」。
+    </div>
+  </div>
+</body>
+</html>
